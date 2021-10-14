@@ -4,6 +4,17 @@ import numpy as np
 
 def get_filters():
 
+    """Capture user input that will be converted to a filter list for use as an input in later functions
+
+    City name filter
+    City filename filter
+    Does city have gender/birth data filter
+    Day, Month, None filter
+    Day filter
+    Month filter
+    
+    """
+
     #City Filter: Select which city and return file name and filter criteria of whether file contains gender and birthyear information to filter list
 
     city_names = {'1': ['Chicago', 'chicago.csv', 'y'], '2': ['New York City', 'new_york_city.csv', 'y'], '3': ['Washington', 'washington.csv', 'n']}
@@ -43,7 +54,7 @@ def get_filters():
         print("You selected: {}".format(month_names[get_month][0]))
 
         month_setting = month_names[get_month][0]
-    
+
     # #Subfilter by day
 
     day_names = {'1': ['Monday'], '2': ['Tuesday'], '3': ['Wednesday'], '4': ['Thursday'], '5': ['Friday'], '6': ['Saturday'], '7': ['Sunday'], '8': ['All']}
@@ -64,7 +75,7 @@ def get_filters():
 
 
     #Return the filter list for use in next function
-    
+
     filter = [city_name, city_file, city_setting, dma_setting, day_setting, month_setting]
     return filter
 
@@ -101,7 +112,7 @@ def get_city_data(city_filters):
     city_df['Month'] = city_df['Start Time'].dt.month
     city_df['Day'] = city_df['Start Time'].dt.dayofweek
     city_df['Hour'] = city_df['Start Time'].dt.hour
-    
+
     # filter by month if applicable
     if month_setting != 'All':
         # use the index of the months list to get the corresponding int
@@ -193,7 +204,7 @@ def station_stats(city_df, city_filters):
 
     grouped_df = city_df.groupby(['Start Station'] + ['End Station'])['End Station'].count()
     route_count = grouped_df.max()
-    
+
     max_key = grouped_df.idxmax()
 
     print('Most common route: {}'.format(max_key))
