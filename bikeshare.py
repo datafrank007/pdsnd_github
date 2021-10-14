@@ -222,13 +222,15 @@ def trip_stats(city_df, city_filters):
 
     #---Total travel time
 
-    total_travel = city_df['Trip Duration'].sum()
-    print('Total trip duration: {}'.format(total_travel))
+    total_travel = city_df['Trip Duration'].sum() / 60
+    print('Total trip duration: {} minutes'.format(total_travel))
 
     #---Average trip travel time
 
-    avg_travel = city_df['Trip Duration'].mean()
-    print('Average trip duration: {}'.format(avg_travel))
+    '''Convert trip times to minutes instead of seconds'''
+
+    avg_travel = city_df['Trip Duration'].mean()/60
+    print('Average trip duration: {} minutes'.format(avg_travel))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -277,6 +279,11 @@ def user_stats(city_df, city_filters):
 
         min_birth = city_df['Birth Year'].min()
         print('Here is the oldest birthyear: \n{}'.format(int(min_birth)))
+
+        ## Add joke if min_birth birth year is prior to 1900
+
+        if min_birth < 1900:
+            print('Gee, I guess biking really helps you live longer!')
 
         print('-'*40)
 
