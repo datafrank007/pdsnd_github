@@ -12,7 +12,7 @@ def get_filters():
     Day, Month, None filter
     Day filter
     Month filter
-    
+
     """
 
     #City Filter: Select which city and return file name and filter criteria of whether file contains gender and birthyear information to filter list
@@ -81,14 +81,7 @@ def get_filters():
 
 def get_city_data(city_filters):
     """
-    Loads data for the specified city and filters by month and day if applicable.
-
-    Args:
-        (str) city - name of the city to analyze
-        (str) month - name of the month to filter by, or "all" to apply no month filter
-        (str) day - name of the day of week to filter by, or "all" to apply no day filter
-    Returns:
-        df - Pandas DataFrame containing city data filtered by month and day
+    Using the filters as inputs to create the dataframe for the city data summary and analyss
     """
 
     city_name = city_filters[0]
