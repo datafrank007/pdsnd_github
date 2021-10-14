@@ -276,6 +276,11 @@ def user_stats(city_df, city_filters):
         min_birth = city_df['Birth Year'].min()
         print('Here is the oldest birthyear: \n{}'.format(int(min_birth)))
 
+        ## Add joke if min_birth birth year is prior to 1900
+
+        if min_birth < 1900:
+            print('Gee, I guess biking really helps you live longer!')
+
         print('-'*40)
 
     print("\nThis took %s seconds." % (time.time() - start_time))
