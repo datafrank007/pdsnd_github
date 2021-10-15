@@ -14,9 +14,8 @@ def get_filters():
     Month filter
 
     """
-
+    #Add city comments to city_names
     #City Filter: Select which city and return file name and filter criteria of whether file contains gender and birthyear information to filter list
-
     city_names = {'1': ['Chicago', 'chicago.csv', 'y', 'the windy city!'], '2': ['New York City', 'new_york_city.csv', 'y', 'the city that never sleeps!'], '3': ['Washington', 'washington.csv', 'n', 'um, yeah, Washington']}
 
     get_city = input('Select a City: 1 = Chicago, 2 = New York City, 3 = Washington: ')
@@ -35,7 +34,7 @@ def get_filters():
         city_comment = city_names[get_city][3]
 
 
-        print("You selected: {}, {}".format(city_name,city_comment)
+        print("You selected: {}, {}".format(city_name, city_comment)
 
     #Day, Month, None Filter: Next get first level filter and return filter information to filter list
 
@@ -51,7 +50,7 @@ def get_filters():
 
     while is_month == False:
         get_month = input('Whoops!  Please entere the number for the month of your choice: 1 = Jan, 2 = Feb, 3 = Mar, 4 = April, 5 = May, 6 = June: ')
-        is_month = get_month in month_names
+        is_month = get_month in monthnames
 
     else:
         print("You selected: {}".format(month_names[get_month][0]))
@@ -139,7 +138,7 @@ def time_stats(city_df, city_filters):
     day_setting = city_filters[4]
     month_setting = city_filters[5]
 
-    """Displays statistics on the most frequent times of travel."""
+    #Displays statistics on the most frequent times of travel.
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
@@ -223,7 +222,7 @@ def trip_stats(city_df, city_filters):
     print('Calculating Trip Duration...\n')
     start_time = time.time()
 
-    #---Total travel time
+    #---Total travel time, in hours
 
     total_travel = city_df['Trip Duration'].sum()
     print('Total trip duration: {}'.format(total_travel))
