@@ -224,8 +224,8 @@ def trip_stats(city_df, city_filters):
 
     #---Total travel time, in hours
 
-    total_travel = city_df['Trip Duration'].sum() / 60
-    print('Total trip duration: {} minutes'.format(total_travel))
+    total_travel = city_df['Trip Duration'].sum() / 3600
+    print('Total trip duration: {} hours'.format(total_travel))
 
     #---Average trip travel time
 
