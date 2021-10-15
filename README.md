@@ -3,12 +3,13 @@
 ### Date created
 --bikeshare.py-- Created: October 8, 2021
 --Readme.md-- Created: October 14, 2021
+--Updated: October 15, 2021 based on project feedback
 
 ### Project Title
 Bikeshare Data Exploration
 
 ### Description
-Explore and summarize bikeshare data from three cities: Chicago, Washington, New York City.
+Explore and summarize bike share data from three cities: Chicago, Washington, New York City.
 
 ### Files used
 bikeshare.py
