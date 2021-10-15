@@ -17,7 +17,7 @@ def get_filters():
 
     #City Filter: Select which city and return file name and filter criteria of whether file contains gender and birthyear information to filter list
 
-    city_names = {'1': ['Chicago', 'chicago.csv', 'y'], '2': ['New York City', 'new_york_city.csv', 'y'], '3': ['Washington', 'washington.csv', 'n']}
+    city_names = {'1': ['Chicago', 'chicago.csv', 'y', 'the windy city!'], '2': ['New York City', 'new_york_city.csv', 'y', 'the city that never sleeps!'], '3': ['Washington', 'washington.csv', 'n', 'um, yeah, Washington']}
 
     get_city = input('Select a City: 1 = Chicago, 2 = New York City, 3 = Washington: ')
 
@@ -28,15 +28,18 @@ def get_filters():
         is_city = get_city in city_names
 
     else:
-        print("You selected: {}".format(city_names[get_city][0]))
 
         city_name = city_names [get_city][0]
         city_file = city_names[get_city][1]
         city_setting = city_names[get_city][2]
+        city_comment = city_names[get_city][3]
+
+
+        print("You selected: {}, {}".format(city_name,city_comment)
 
     #Day, Month, None Filter: Next get first level filter and return filter information to filter list
 
-    dma_setting = 'All'
+    #dma_setting = 'All'
 
     #Subfilter by month
 
